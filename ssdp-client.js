@@ -2,7 +2,6 @@
 
 const Client = require('./lib/client');
 const client = new Client();
-// client.addUSN('homebase:bridge');
 const debug = require('debug')('client');
 
 const devices = [];
@@ -27,32 +26,10 @@ function addDevice(headers) {
     headers: headers,
     lastUpdate: Date.now()
   };
-  console.log('device added', device.usn);
+  console.log('device added');
+  console.log(JSON.stringify(device, null, 4));
   devices.push(device);
 }
-
-// function updateDevice(headers, state) {
-//   let device = devices.find(device => device.usn === headers.USN);
-//   if (!device) {
-//     device.push({
-//       usd: headers.usn,
-//       headers: headers,
-//       lastUpdate: Date.now()
-//     });
-//     devices.push(device);
-//     console.log('device online', device.usn);
-//   } else {
-//     Object.assign(device, state, {
-//       headers: headers,
-//       lastUpdate: Date.now()
-//     });
-//   }
-// }
-
-client.on('notify', function (headers) {
-
-});
-
 
 client.on('advertise-alive', function (headers) {
   // console.log('alive', headers.NT);
