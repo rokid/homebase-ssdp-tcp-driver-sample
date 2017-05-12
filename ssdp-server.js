@@ -16,9 +16,4 @@ exports.start = function(location) {
   process.on('exit', function(){
     server.stop();
   });
-
-
-  setTimeout(function(){
-    setTimeout(function(){}, 1000);
-  }, 60000);
 };
