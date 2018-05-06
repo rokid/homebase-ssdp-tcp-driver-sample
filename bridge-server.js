@@ -34,12 +34,10 @@ exports.start = function(PORT, ADDRESS, cb) {
     },
     execute: function(args, callback) {
       const s = args.action.name;
-      exec(`osascript -e 'display notification "light ${s}" sound name "${s === 'on' ? 'Bottle.aiff' : 'Tink.aiff'}"'`, (err) => {
-        console.log('=== execute');
-        console.log(JSON.stringify(args, null, 4));
-        callback(null, {
-         switch: s === 'on' ? 'off' : 'on'
-        });
+      console.log('=== execute');
+      console.log(JSON.stringify(args, null, 4));
+      callback(null, {
+        switch: s === 'on' ? 'off' : 'on'
       });
     }
   });
