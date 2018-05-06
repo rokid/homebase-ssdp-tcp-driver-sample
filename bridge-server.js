@@ -27,11 +27,6 @@ exports.start = function(PORT, ADDRESS, cb) {
       console.log(JSON.stringify(args, null, 4));
       callback(null, devices);
     },
-    get: function(args, callback) {
-      console.log(JSON.stringify(args, null, 4));
-      const devices = [];
-      callback(null, devices.find(dev => dev.deviceId === args.device.deviceId));
-    },
     execute: function(args, callback) {
       const s = args.action.name;
       console.log('=== execute');
